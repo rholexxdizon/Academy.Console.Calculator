@@ -58,6 +58,7 @@ namespace CalculatorLibrary
                     writer.WriteValue("Divide");
                     break;
                 // Return text for an incorrect option entry
+                
                 default:
                     break;
             }

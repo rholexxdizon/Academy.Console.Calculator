@@ -20,7 +20,8 @@ namespace CalculatorProgram {
                 string? numInput1 = "";
                 string? numInput2 = "";
                 double result = 0;
-
+                int counter = 0;
+               
                 //Ask the user to type the first number
                 Console.Write("Type a number, and then press Enter: ");
                 numInput1 = Console.ReadLine();
@@ -45,7 +46,7 @@ namespace CalculatorProgram {
                 }
 
                 // Ask the user to choose an operator
-                Console.WriteLine("Choose an operator from the folling list:");
+                Console.WriteLine("Choose an operator from the following list:");
                 Console.WriteLine("\ta - Add");
                 Console.WriteLine("\ts - Substract");
                 Console.WriteLine("\tm - Multiply");
@@ -71,7 +72,9 @@ namespace CalculatorProgram {
                         else
                         {
                             Console.WriteLine("Your result: {0:0.##}\n", result);
+                            
                         }
+                        counter++;
                     }
                     catch (Exception e)
                     {
@@ -79,8 +82,9 @@ namespace CalculatorProgram {
                     } 
                 }
                 Console.WriteLine("---------------------\n");
-
+                
                 // Wait for the user to respond before closing.
+                Console.WriteLine($"The calculator has been used {counter} times.");
                 Console.Write("Press 'n' and Enter to close the app, or press any other key and Enter to continue: ");
                 if (Console.ReadLine() == "n") endApp = true;
 
