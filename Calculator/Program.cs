@@ -51,6 +51,10 @@ namespace CalculatorProgram {
                 Console.WriteLine("\ts - Substract");
                 Console.WriteLine("\tm - Multiply");
                 Console.WriteLine("\td - Divide");
+                Console.WriteLine("\tr - Square Root");
+                Console.WriteLine("\tp - Power");
+                Console.WriteLine("\tt - 10x");
+                Console.WriteLine("\tf - Trigonometry Function");
                 Console.WriteLine("\tq - Quit");
 
                 string? op = Console.ReadLine();
