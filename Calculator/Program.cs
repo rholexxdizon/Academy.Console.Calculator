@@ -1,5 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using CalculatorLibrary;
+using Microsoft.VisualBasic;
 
 namespace CalculatorProgram { 
     class Program
@@ -20,6 +21,7 @@ namespace CalculatorProgram {
                 string? numInput1 = "";
                 string? numInput2 = "";
                 double result = 0;
+                double result2 = 0;
                 int counter = 0;
                
                 //Ask the user to type the first number
@@ -60,7 +62,7 @@ namespace CalculatorProgram {
                 string? op = Console.ReadLine();
 
                 // Validate input is not null, and matches the pattern
-                if (op == null || !Regex.IsMatch(op, "[a,|s|m|d]"))
+                if (op == null || !Regex.IsMatch(op, "[a|s|m|d|r|p|t|f|q]"))
                 {
                     Console.WriteLine("Error: Unrecognized input.");
                 }    
@@ -69,14 +71,18 @@ namespace CalculatorProgram {
                     try
                     {
                         result = calculator.DoOperation(cleanNum1, cleanNum2, op);
+                        result2 = calculator.SquareRoot(cleanNum2);
                         if (double.IsNaN(result))
                         {
                             Console.WriteLine("This operation will result in a mathematical error.\n");
                         }
+                        if (op == "r")
+                        {
+                            Console.WriteLine($"First number:{result}\nSecond number:{result2}\n");
+                        }
                         else
                         {
                             Console.WriteLine("Your result: {0:0.##}\n", result);
-                            
                         }
                         counter++;
                     }
