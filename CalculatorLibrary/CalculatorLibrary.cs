@@ -23,7 +23,6 @@ namespace CalculatorLibrary
         public double DoOperation(double num1, double num2, string op)
         {
             double result = double.NaN; // Default value is "not-a-number" if an operation, such as division, could result in an error.
-            double result2 = double.NaN;
             writer.WriteStartObject();
             writer.WritePropertyName("Operand1");
             writer.WriteValue(num1);
@@ -60,14 +59,17 @@ namespace CalculatorLibrary
                     break;
                 case "r":
                     result = num1 * num1;
-                    result2 = SquareRoot(num2);
                     writer.WriteValue("Square Root");
                     break;
                 case "p":
-                    result = num1;
-                        break;
+                    result = Math.Pow(num1, num2);
+                    writer.WriteValue("Power");
+                    break;
+                case "t":
+                    result = num1 * 10;
+                    writer.WriteValue("10x");
+                    break;
                 // Return text for an incorrect option entry
-                
                 default:
                     break;
             }
@@ -84,11 +86,14 @@ namespace CalculatorLibrary
             return num2;
         }
 
+
         public void Finish()
         {
             writer.WriteEndArray();
             writer.WriteEndObject();
             writer.Close();
         }
+
+        
     }
 }

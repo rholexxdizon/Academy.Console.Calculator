@@ -21,7 +21,8 @@ namespace CalculatorProgram {
                 string? numInput1 = "";
                 string? numInput2 = "";
                 double result = 0;
-                double result2 = 0;
+                double resultSquareRoot = 0;
+                double resultTen = 0;
                 int counter = 0;
                
                 //Ask the user to type the first number
@@ -71,14 +72,19 @@ namespace CalculatorProgram {
                     try
                     {
                         result = calculator.DoOperation(cleanNum1, cleanNum2, op);
-                        result2 = calculator.SquareRoot(cleanNum2);
                         if (double.IsNaN(result))
                         {
                             Console.WriteLine("This operation will result in a mathematical error.\n");
                         }
                         if (op == "r")
                         {
-                            Console.WriteLine($"First number:{result}\nSecond number:{result2}\n");
+                            resultSquareRoot = calculator.SquareRoot(cleanNum2);
+                            Console.WriteLine($"First number:{result}\nSecond number:{resultSquareRoot}\n");
+                        }
+                        if(op == "t")
+                        {
+                            resultTen = cleanNum2 * 10;
+                            Console.WriteLine($"First number:{result}\nSecond number:{resultTen}");
                         }
                         else
                         {
