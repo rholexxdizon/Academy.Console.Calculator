@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Diagnostics.Metrics;
 using Newtonsoft.Json;
 
 namespace CalculatorLibrary
@@ -86,7 +87,6 @@ namespace CalculatorLibrary
             return num2;
         }
 
-
         public void Finish()
         {
             writer.WriteEndArray();
@@ -94,6 +94,9 @@ namespace CalculatorLibrary
             writer.Close();
         }
 
-        
+        public void Counter(int counter)
+        {
+            Console.WriteLine($"The calculator has been used {counter} times.");
+        }
     }
 }

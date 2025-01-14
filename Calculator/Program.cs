@@ -100,7 +100,7 @@ namespace CalculatorProgram {
                 Console.WriteLine("---------------------\n");
                 
                 // Wait for the user to respond before closing.
-                Console.WriteLine($"The calculator has been used {counter} times.");
+                
                 Console.Write("Press 'n' and Enter to close the app, or press any other key and Enter to continue: ");
                 if (Console.ReadLine() == "n") endApp = true;
 
